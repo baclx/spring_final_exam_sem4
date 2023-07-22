@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{admin/index}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>[[${title}]]</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1>[[${title}]]</h1>
+
+    <table class="table table-dark table-striped">
+        <tr>
+            <th>SL NO</th>
+            <th>Sale Man Id</th>
+            <th>Sale Man Name</th>
+            <th>Dos</th>
+            <th>Product ID</th>
+        </tr>
+        <th:block th:each="sale : ${saleList}">
+            <tr>
+                <td>[[${sale.slNo}]]</td>
+                <td>[[${sale.salesManId}]]</td>
+                <td>[[${sale.salesManName}]]</td>
+                <td>[[${sale.dos}]]</td>
+                <td>[[${sale.product.prodId}]]</td>
+            </tr>
+        </th:block>
+    </table>
+</section>
+</body>
+</html>
